@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:loginConfiguration xmlns:tns="http://www.worklight.com/auth/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+		<!-- Licensed Materials - Property of IBM
+			 5725-G92 (C) Copyright IBM Corp. 2006, 2013. All Rights Reserved.
+			 US Government Users Restricted Rights - Use, duplication or
+             disclosure restricted by GSA ADP Schedule Contract with IBM Corp. -->	
+
+<!--	 <staticResources>
+		<resource id="subscribeServlet" securityTest="SubscribeServlet">
+			<urlPatterns>/subscribeSMS*</urlPatterns>
+		</resource>
+	</staticResources> -->
+         
+<!--  <securityTests>
+       	<customSecurityTest name="SubscribeServlet">
+       		<test realm="SubscribeServlet" isInternalUserID="true"/>
+       	</customSecurityTest>      	
+
+	</securityTests> -->
+	
+	<realms>
+		<realm name="SampleAppRealm" loginModule="StrongDummy">
+			<className>com.worklight.core.auth.ext.FormBasedAuthenticator</className>
+		</realm>
+		
+		<realm name="WorklightConsole" loginModule="requireLogin">
+			<className>com.worklight.core.auth.ext.FormBasedAuthenticator</className>
+			<onLoginUrl>/console</onLoginUrl>
+		</realm>
+	</realms>
+
+	<loginModules>
+		<loginModule name="StrongDummy">
+			<className>com.worklight.core.auth.ext.NonValidatingLoginModule</className>
+		</loginModule>
+		
+		<loginModule name="requireLogin">
+			<className>com.worklight.core.auth.ext.SingleIdentityLoginModule</className>
+		</loginModule>
+	</loginModules>
+
+</tns:loginConfiguration>
