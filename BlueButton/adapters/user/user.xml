@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wl:adapter xmlns:wl="http://www.worklight.com/integration" xmlns:http="http://www.worklight.com/integration/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="user">
+<!--
+   Licensed Materials - Property of IBM
+   5725-G92 (C) Copyright IBM Corp. 2011, 2013. All Rights Reserved.
+   US Government Users Restricted Rights - Use, duplication or
+   disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+	<displayName>user</displayName>
+	<description>user</description>
+	<connectivity>
+		<connectionPolicy xsi:type="http:HTTPConnectionPolicyType">
+			<protocol>http</protocol>
+			<domain>http://172.16.0.208</domain>
+			<port>8099</port>
+		</connectionPolicy>
+		<loadConstraints maxConcurrentConnectionsPerNode="2"/>
+	</connectivity>
+
+
+	<procedure name="getUsers"> </procedure>
+	<procedure name="addUser"> </procedure>
+	<procedure name="updateUser"> </procedure>
+	<procedure name="deleteUser"> </procedure>
+	
+	
+
+	
+	
+</wl:adapter>
