@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>IBM BlueButton Emergency Contacts</title>
+                <link rel="stylesheet" href="./css/Bootstrap.css">
+                <link rel="stylesheet" href="./css/jquery.mobile.structure-1.2.0.min.css" />
+                <script src="./js/jquery-1.8.2.min.js"></script>
+                <script src="./js/jquery.mobile-1.2.0.min.js"></script>
+        <style>
+            .med a {
+                font-size: 18px;
+                margin-bottom:-10px;
+            }
+            .vitals-back {
+                background:#CCC;
+            }
+            .details1a {
+                margin-left: 15px;
+            }
+            .details {
+                display: inline-block;
+                margin-bottom: 5px;
+                margin-right: 5px;
+                font-weight: normal;
+                font-size: 13px;
+            }
+            .details2 {
+                margin-left: 10px;
+                margin-bottom: -15px;
+            }
+            .details1b {
+                margin-top: -10px;
+                margin-bottom: -15px;
+            }
+            .date {
+                font-weight:normal;
+                display: inline-block;
+                float:right;
+                margin-right:20px;
+                margin-top:-54px;
+                position:relative;
+            }
+            .details1 {
+                font-size:15px;
+            }
+        </style>
+        <script>
+            function loadVitals() {
+                var vitals = [{name:"John Doe", dob: "1-Apr-1973", blood: "O+", height: "3\' 7\"", weight: "240", bmi: "70 billion", allergies: "Everything", donor: "Yes"}];
+                for(var med in vitals) {
+                    med = vitals[med];
+                    var newElement = '<li class="med past vitals-back" data-icon="false"><a href="">' + med.name + '</a>';
+                    newElement += '<div class="details details1a details1">DOB: <big><b>' + med.dob + '</b></big></div>';
+                    newElement += ' | <div class="details details2">Is Donor? <big><b>' + med.donor + '!</b></big></div>';
+                    newElement += '<br /><div class="details details1a">Height: <big><b>' + med.height + '</b></big></div>';
+                    newElement += ' | <div class="details details2">Weight: <big><b>' + med.weight + '</b></big></div>';
+                    newElement += '<br /><div class="details details1a">BMI: <big><b>' + med.bmi + '</b></big></div>';
+                    newElement += ' | <div class="details details2">Blood Type: <big><b>' + med.blood + '</b></big></div>';
+                    newElement += '<br /><div class="details details1a">Allergies: <big><b>' + med.allergies + '</b></big></div>';
+                    newElement += '</li>';
+                    $('#vitals').append(newElement);
+                }
+                $('#vitals').listview('refresh');
+            }
+
+            function loadContacts() {
+                var contacts = [{name: "Jane Doe", relationship: "Wife", home: "703-123-4567", work: "202-7654-321", cell: "972-000-0000", email: "jane@doe.com", address: "123 Main St"},{name: "Jill Doe", relationship: "Daughter", home: "703-000-1234", work: "202-000-4321", cell: "972-000-0000", email: "jill@doe.com", address: "789 MLK Blvd"}];
+                for(var med in contacts) {
+                    med = contacts[med];
+                    var newElement = '<li class="med past" data-icon="false"><a href="">' + med.name + '</a>';
+                    newElement += '<div class="details details1a details1"><b><i>' + med.relationship + '</i></b></div>';
+                    newElement += '<br /><div class="details details1a">Cell: <b>' + med.cell + '</b></div>';
+                    newElement += '<br /><div class="details details2">Home: <b>' + med.home + '</b></div>';
+                    newElement += '<br /><div class="details details1a">Work: <b>' + med.work + '</b></div>';
+                    newElement += '<br /><div class="details details2">Email: <b>' + med.email + '</b></div>';
+                    newElement += '<br /><div class="details details1a">Address: <b>' + med.address + '</b></div>';
+                    newElement += '</li>';
+                    $('#contacts').append(newElement);
+                }
+                $('#contacts').listview('refresh');
+            }
+
+            function init() {
+                loadVitals();
+                loadContacts();
+            }
+        </script>
+	</head>
+	<body onLoad="init();">
+		<div data-role="page" data-theme="a">
+			<div data-role="header" data-position="inline">
+                <div data-role="header">
+                    <a href="./summary.html" data-role="button" data-icon="arrow-l" data-iconpos="left">Back</a>
+                    <h1><b>Emergency Contacts</b></h1>
+                    <a href="" onClick="history.go(0)" data-role="button" data-icon="refresh" data-iconpos="right">Reload</a>
+                </div>
+			</div>
+			<div data-role="content" data-theme="a">
+                <ul id="vitals" data-role="listview" data-inset="true" data-divider-theme="c">
+				</ul>
+				<ul id="contacts" data-role="listview" data-inset="true" data-divider-theme="c">
+					<li data-role="list-divider">Emergency Contacts</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

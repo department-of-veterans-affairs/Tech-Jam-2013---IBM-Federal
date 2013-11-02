@@ -1,0 +1,15 @@
+
+/* Stylesheet content from css/media_queries.css in folder common */
+
+@media all
+and (min-width : 481px) 
+and (max-width : 767px) {
+    .textnamea{display:none;}
+    .textnameb{display:block;}
+}
+
+@media all 
+and (max-width : 480px) {
+    .textnamea{display:block;}
+    .textnameb{display:none;}
+}
